@@ -10,6 +10,11 @@ SRCFILES := $(wildcard src/*.c)
 MODULES  := $(basename $(notdir $(SRCFILES)))
 OBJS := $(patsubst %, $(OBJDIR)/%.o, $(MODULES))
 
+TESTFILES := $(wildcard tests/test_*.c)
+TESTS := $(basename $(notdir $(TESTFILES)))
+TESTEXES := $(patsubst %, $(BINDIR)/%, $(TESTS))
+
+
 help:
 	@echo "This Makefile builds a modular C project using a static library architecture. It compiles individual modules into object files, archives them into a static library (libcollex.a), and organizes all output files into a structured build/ directory."
 	@echo "Commands:"
@@ -27,5 +32,9 @@ $(OBJDIR)/%.o: src/%.c include/%.h
 clean:
 	@rm -rf build
 
-test:
-	@echo "Not implemented!"
+test: $(TESTEXES)
+	@$(foreach test, $(TESTEXES), eval $(test))
+
+$(BINDIR)/%: tests/%.c
+	@mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $< -o $@
