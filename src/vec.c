@@ -6,9 +6,9 @@
 
 void __data_destroy(void *data) { free(data); }
 
-void __vec_grow(void **vec, unsigned int *cap, unsigned int dataSize) {
+void __vec_grow(void **vec, unsigned int *cap, unsigned int data_size) {
     size_t new_cap = (*vec == NULL) ? INITIAL_CAPAPACITY : (*cap * 2);
-    void *new_data = realloc(*vec, dataSize * new_cap);
+    void *new_data = realloc(*vec, data_size * new_cap);
     if (!new_data) {
         fprintf(stderr, "reallocate data error\n");
         exit(EXIT_FAILURE);
@@ -18,11 +18,11 @@ void __vec_grow(void **vec, unsigned int *cap, unsigned int dataSize) {
 }
 
 void *__vec_access(void *data, unsigned int len, unsigned int index,
-                   unsigned int dataSize) {
+                   unsigned int data_size) {
     if (index >= len) {
         fprintf(stderr, "indexing out of bound error\n");
         exit(EXIT_FAILURE);
     }
 
-    return (char *)data + index * dataSize;
+    return (char *)data + index * data_size;
 }

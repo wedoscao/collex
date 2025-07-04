@@ -34,8 +34,8 @@
     *(T *)__vec_access(vec.data, vec.len, index, sizeof(T))
 
 void __data_destroy(void *data);
-void __vec_grow(void **vec, unsigned int *cap, unsigned int dataSize);
+void __vec_grow(void **vec, unsigned int *cap, unsigned int data_size);
 void *__vec_access(void *data, unsigned int len, unsigned int index,
-                   unsigned int dataSize);
+                   unsigned int data_size);
 
 #endif
