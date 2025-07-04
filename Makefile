@@ -19,6 +19,7 @@ help:
 	@echo "This Makefile builds a modular C project using a static library architecture. It compiles individual modules into object files, archives them into a static library (libcollex.a), and organizes all output files into a structured build/ directory."
 	@echo "Commands:"
 	@echo "\t- build \t\t Compile this project"
+	@echo "\t- test  \t\t Compile this project"
 	@echo "\t- clean \t\t Clean build directory"
 
 build: $(OBJS) 
