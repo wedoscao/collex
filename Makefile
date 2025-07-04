@@ -1,3 +1,5 @@
+.PHONY: build test clean help
+
 CC = clang
 AR = ar
 CFLAGS = -Wall --std=c11
@@ -34,8 +36,8 @@ clean:
 	@rm -rf build
 
 test: $(TESTEXES)
-	@$(foreach test, $(TESTEXES), eval $(test))
+	@for test in $(TESTEXES); do echo "Running $$test..."; $$test || exit 1; done
 
-$(BINDIR)/%: tests/%.c
+$(BINDIR)/%: $(TESTFILES) $(OBJS)
 	@mkdir -p $(BINDIR)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< $(OBJS) -o $@
