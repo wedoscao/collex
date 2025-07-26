@@ -40,4 +40,4 @@ $(BUILD_DIR)/obj/%.o: $(SRC_DIR)/%.c
 
 $(BUILD_DIR)/tests/%.out: $(TESTS_DIR)/%.c $(BUILD_DIR)/$(LIB_NAME)
 	@mkdir -p $(BUILD_DIR)/tests
-	$(CC) $(CFLAGS) $< $(BUILD_DIR)/$(LIB_NAME) -o $@
+	$(CC) $(CFLAGS) $< -L$(BUILD_DIR) -lcollex -o $@
