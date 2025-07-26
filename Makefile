@@ -1,7 +1,7 @@
 .PHONY: help build test clean
 
 CC := gcc
-CFLAGS := -Wall -Wextra -O2 
+CFLAGS := -xc -xc-header -Iinclude -Wall -Wextra -Werror -std=c99 -O2
 SRC_DIR := src
 BUILD_DIR := build
 INCLUDE_DIR := include
