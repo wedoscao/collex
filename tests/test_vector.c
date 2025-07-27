@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "collex_vector.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>

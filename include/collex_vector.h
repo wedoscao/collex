@@ -1,5 +1,5 @@
 /**
- *  @file vector.h
+ *  @file collex_vector.h
  *  @brief A generic vector struct with utility functions.
  *
  *  Copyright 2025, Sang H. Cao, All Rights Reserved
