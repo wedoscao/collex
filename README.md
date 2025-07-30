@@ -13,16 +13,16 @@ This repository is a C library implementing basic data structures.
 
 1. Clone this repository:
 ```bash
-    git clone https://github.com/wedoscao/collex collex
+git clone https://github.com/wedoscao/collex collex
 ```
 2. Build the static library file:
 ```bash
-    cd collex && make build
+cd collex && make build
 ```
 ## Usage
 Link libcollex.a with your project:
 ```bash
-    gcc -o my_program my_program.c -L/path/to/collex/build -lcollex
+gcc -o my_program my_program.c -L/path/to/collex/build -lcollex
 ```
 
 ## License
